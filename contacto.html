@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - NEWLABEL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fff;
+            --accent-color: #ccc;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: #333;
+        }
+        
+        .success-message {
+            color: #28a745;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: none; /* Oculto por defecto */
+        }
+
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: none; /* Oculto por defecto */
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Estilos para el footer moderno */
+    .footer-moderno {
+        background-color: #000;
+        color: #fff;
+        padding: 50px 0 0;
+        font-family: 'Arial', sans-serif;
+        border-top: 1px solid #333;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .footer-section h4 {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .footer-section h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-section ul li i {
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    .footer-section ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #fff;
+    }
+
+    .slogan {
+        color: #aaa;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: #222;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+        background-color: #333;
+        transform: translateY(-3px);
+    }
+
+    .social-icon img {
+        width: 18px;
+        height: 18px;
+        filter: brightness(0) invert(1);
+    }
+
+    .footer-bottom {
+        background-color: #111;
+        padding: 30px 0 20px;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
+
+    .payment-section {
+        margin-bottom: 20px;
+    }
+
+    .payment-section h5 {
+        color: #aaa;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .payment-methods {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .payment-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #222;
+        border-radius: 8px;
+        padding: 10px 15px;
+        min-width: 80px;
+        transition: all 0.3s;
+    }
+
+    .payment-card:hover {
+        background: #333;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .payment-card img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        margin-bottom: 5px;
+        filter: grayscale(100%) brightness(1.5);
+        transition: filter 0.3s;
+    }
+
+    .payment-card:hover img {
+        filter: grayscale(0%) brightness(1);
+    }
+
+    .payment-card span {
+        font-size: 10px;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .copyright {
+        margin: 20px 0 0;
+        color: #666;
+        font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .footer-section h4::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .payment-methods {
+            gap: 10px;
+        }
+
+        .payment-card {
+            padding: 8px 10px;
+            min-width: 70px;
+        }
+    }
+    
+    .logo-newlabel{
+    width: 120px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php">
+                   <img src="../img/logo-newlabel-removebg-preview.png" alt="logo-newlabel-removebg-preview" class="logo-newlabel">
+                   </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quienesSomos.html">Quienes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dondeEstamos.html">Donde Estamos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-header">
+        <h1>CONTÁCTANOS</h1>
+        <p>Estamos aquí para ayudarte con cualquier consulta</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Información de contacto</h3>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+                <div>
+                    <h5>Dirección</h5>
+                    <p>Calle de la Moda Urbana, 123<br>28001 Madrid, España</p>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="bi bi-telephone"></i>
+                </div>
+                <div>
+                    <h5>Teléfono</h5>
+                    <p>+34 123 456 789</p>
+                    <p>Lunes a Viernes: 8:00 - 17:00</p>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="bi bi-envelope"></i>
+                </div>
+                <div>
+                    <h5>Email</h5>
+                    <p>info@newlabel.com</p>
+                    <p>atencioncliente@newlabel.com</p>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="bi bi-chat"></i>
+                </div>
+                <div>
+                    <h5>Redes Sociales</h5>
+                    <p>@newlabel en Instagram y TikTok</p>
+                    <p>Respuesta en menos de 24h</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h3>Envíanos un mensaje</h3>
+            <div id="successMessage" class="success-message">
+                ¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.
+            </div>
+            <div id="errorMessage" class="error-message">
+                Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.
+            </div>
+            <form action="send_email.php" method="POST" id="contactForm">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre completo" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="tel" class="form-control" name="telefono" placeholder="Teléfono (opcional)">
+                </div>
+                <div class="mb-3">
+                    <select class="form-control" name="motivo" required>
+                        <option value="" disabled selected>Motivo de contacto</option>
+                        <option value="Consulta sobre productos">Consulta sobre productos</option>
+                        <option value="Soporte postventa">Soporte postventa</option>
+                        <option value="Cambios y devoluciones">Cambios y devoluciones</option>
+                        <option value="Información corporativa">Información corporativa</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Enviar mensaje</button>
+            </form>
+        </div>
+    </div>
+
+
+<footer id="contacto" class="footer-moderno">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>NEWLABEL</h4>
+            <p class="slogan">Drip don't lie.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/ivan.soriia" target="_blank" class="social-icon">
+                    <img src="../img/instagram.ico" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@sooriiiaa" target="_blank" class="social-icon">
+                    <img src="../img/tik-tok.png" alt="TikTok">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>AYUDA</h4>
+            <ul>
+                <li><a href="faqs.html">FAQS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="cambios-devoluciones.html">CAMBIOS Y DEVOLUCIONES</a></li>
+                <li><a href="politica-envio.html">POLÍTICA DE ENVÍO</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>LEGAL</h4>
+            <ul>
+                <li><a href="terminos-condiciones.html">TÉRMINOS Y CONDICIONES</a></li>
+                <li><a href="politica-privacidad.html">POLÍTICA DE PRIVACIDAD</a></li>
+                <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
+                <li><a href="aviso-legal.html">AVISO LEGAL</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>CONTÁCTANOS</h4>
+            <ul>
+                <li><i class="bi bi-envelope"></i> info@newlabel.com</li>
+                <li><i class="bi bi-telephone"></i> +34 123 456 789</li>
+                <li><i class="bi bi-clock"></i> L-V: 8:00 - 17:00</li>
+            </ul>
+        </div>
+    </div>
+
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Previene el envío tradicional del formulario
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Oculta cualquier mensaje anterior
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Espera una respuesta JSON del servidor
+            })
+            .then(data => {
+                if (data.success) {
+                    successMessage.style.display = 'block';
+                    form.reset(); // Resetea el formulario solo si el envío fue exitoso
+                } else {
+                    errorMessage.textContent = data.message || 'Hubo un error al enviar tu mensaje.';
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.textContent = 'Hubo un problema con la conexión o el servidor.';
+                errorMessage.style.display = 'block';
+            })
+            .finally(() => {
+                // Oculta el mensaje después de unos segundos
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                }, 5000); // 5 segundos
+            });
+        });
+    </script>
+</body>
+</html>

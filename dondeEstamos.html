@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWLABEL | Dónde Estamos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* ESTILOS ORIGINALES DEL NAV Y FOOTER (COPIADOS EXACTAMENTE IGUAL) */
+        body {
+            background-color: #f8f9fa;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img, .hero video {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        
+        .footer-moderno {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 0 0;
+            font-family: 'Arial', sans-serif;
+            border-top: 1px solid #333;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        .footer-section h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background-color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-section ul li i {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .slogan {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #222;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+        }
+
+        .social-icon img {
+            width: 18px;
+            height: 18px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-bottom {
+            background-color: #111;
+            padding: 30px 0 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .payment-section {
+            margin-bottom: 20px;
+        }
+
+        .payment-section h5 {
+            color: #aaa;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .payment-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #222;
+            border-radius: 8px;
+            padding: 10px 15px;
+            min-width: 80px;
+            transition: all 0.3s;
+        }
+
+        .payment-card:hover {
+            background: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-card img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            margin-bottom: 5px;
+            filter: grayscale(100%) brightness(1.5);
+            transition: filter 0.3s;
+        }
+
+        .payment-card:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .payment-card span {
+            font-size: 10px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copyright {
+            margin: 20px 0 0;
+            color: #666;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .payment-methods {
+                gap: 10px;
+            }
+
+            .payment-card {
+                padding: 8px 10px;
+                min-width: 70px;
+            }
+        }
+        
+        .logo-newlabel{
+            width: 120px;
+        }
+
+        /* NUEVOS ESTILOS PARA EL BODY (TU DISEÑO MEJORADO) */
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .location-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background: #000;
+        }
+        
+        .location-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .location-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .location-body {
+            padding: 25px;
+        }
+        
+        .location-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .location-info {
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .info-icon {
+            color: #000;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .events-section {
+            background: #f1f1f1;
+            padding: 60px 0;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid #000;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .event-date {
+            background: #000;
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .event-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section {
+            background: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 80px 0;
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .btn-urban {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn-urban:hover {
+            background: white;
+            color: #000;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .location-img {
+                height: 200px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- NAV ORIGINAL (COPIADO EXACTAMENTE IGUAL) -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php">
+                <img src="../img/logo-newlabel-removebg-preview.png" alt="logo-newlabel-removebg-preview" class="logo-newlabel">
+                
+                    <!--<h3>NEWLABEL</h3>-->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quienesSomos.html">Quienes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dondeEstamos.html">Donde Estamos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <video autoplay muted loop>
+            <source src="../img/dondeEstamos-video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <h1>NEWLABEL &reg; - DÓNDE ESTAMOS</h1>
+        </div>
+    </header>
+
+    <!-- CONTENIDO REDISEÑADO (MANTENIENDO LA INFORMACIÓN ORIGINAL PERO CON MEJOR DISEÑO) -->
+    <div class="main-content">
+        <section class="location-section">
+            <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h2 class="section-title">NUESTRA TIENDA EN MADRID</h2>
+                        <p>Nuestra tienda oficial se encuentra en Madrid, en la calle Fuencarral 14. Un espacio diseñado para que vivas la experiencia NEWLABEL de primera mano. Más que una simple tienda, es un punto de encuentro para los amantes de la moda urbana.</p>
+                        <p>Desde la decoración minimalista pero sofisticada hasta la música ambiental cuidadosamente seleccionada, todo en nuestro local está diseñado para sumergirte en el universo NEWLABEL.</p>
+                        <a href="#map" class="btn btn-dark mt-3">Ver en mapa</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="location-card">
+                            <img src="../img/tienda.jpg" alt="Tienda NEWLABEL Madrid" class="location-img">
+                            <div class="location-body">
+                                <h3 class="location-title">NEWLABEL MADRID</h3>
+                                <div class="location-info">
+                                    <div class="info-item">
+                                        <div class="info-icon">📍</div>
+                                        <div>Calle Fuencarral 14, Madrid</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-icon">🕒</div>
+                                        <div>Lunes a Sábado: 10:00 - 21:00</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-icon">📞</div>
+                                        <div>+34 123 456 789</div>
+                                    </div>
+                                </div>
+                                <a href="https://www.google.com/maps/dir/40.4423447,-3.7986311/Calle+de+Fuencarral,+14,+Centro,+28004+Madrid/@40.4292698,-3.7916059,13z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0xd422887bad17b5f:0x964e67f54f59d524!2m2!1d-3.7011285!2d40.4212345!3e0?authuser=0&entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D" class="btn btn-outline-dark">Cómo llegar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h2 class="section-title">UBICACIÓN EXACTA</h2>
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="events-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">EVENTOS INTERNACIONALES</h2>
+                    <p class="lead">Estamos llevando la esencia de NEWLABEL a nivel mundial</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="event-card">
+                            <span class="event-date">15 OCT 2023</span>
+                            <h3 class="event-title">Lanzamiento Colección Otoño</h3>
+                            <p>Presentación exclusiva en nuestra tienda de Madrid con DJ en vivo y edición limitada.</p>
+                            <a href="#" class="btn btn-sm btn-dark mt-3">Más información</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="event-card">
+                            <span class="event-date">10 NOV 2023</span>
+                            <h3 class="event-title">Pop-Up Store Barcelona</h3>
+                            <p>Llevamos NEWLABEL a Barcelona por tiempo limitado en un espacio exclusivo.</p>
+                            <a href="#" class="btn btn-sm btn-dark mt-3">Más información</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="event-card">
+                            <span class="event-date">15 DIC 2023</span>
+                            <h3 class="event-title">Evento en París</h3>
+                            <p>Participación en el Urban Fashion Week con edición limitada exclusiva.</p>
+                            <a href="#" class="btn btn-sm btn-dark mt-3">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <p>Síguenos en redes sociales para no perderte ninguna novedad sobre nuestros eventos internacionales.</p>
+                    <a href="#" class="btn btn-urban">Seguir en Instagram</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="cta-overlay"></div>
+            <div class="container cta-content">
+                <h2 class="cta-title">¿LISTO PARA VIVIR LA EXPERIENCIA NEWLABEL?</h2>
+                <p class="mb-4">Visita nuestra tienda en Madrid y descubre lo último en moda urbana</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER ORIGINAL (COPIADO EXACTAMENTE IGUAL) -->
+    <footer id="contacto" class="footer-moderno">
+        <div class="footer-container">
+            <!-- Sección de enlaces rápidos -->
+            <div class="footer-section">
+                <h4>NEWLABEL</h4>
+                <p class="slogan">Drip don't lie.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/ivan.soriia" target="_blank" class="social-icon">
+                        <img src="../img/instagram.ico" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@sooriiiaa" target="_blank" class="social-icon">
+                        <img src="../img/tik-tok.png" alt="TikTok">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sección de ayuda -->
+            <div class="footer-section">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><a href="faqs.html">FAQS</a></li>
+                    <li><a href="contacto.html">CONTACTO</a></li>
+                    <li><a href="cambios-devoluciones.html">CAMBIOS Y DEVOLUCIONES</a></li>
+                    <li><a href="politica-envio.html">POLÍTICA DE ENVÍO</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección legal -->
+            <div class="footer-section">
+                <h4>LEGAL</h4>
+                <ul>
+                    <li><a href="terminos-condiciones.html">TÉRMINOS Y CONDICIONES</a></li>
+                    <li><a href="politica-privacidad.html">POLÍTICA DE PRIVACIDAD</a></li>
+                    <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
+                    <li><a href="aviso-legal.html">AVISO LEGAL</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección de contacto -->
+            <div class="footer-section">
+                <h4>CONTÁCTANOS</h4>
+                <ul>
+                    <li><i class="bi bi-envelope"></i> info@newlabel.com</li>
+                    <li><i class="bi bi-telephone"></i> +34 123 456 789</li>
+                    <li><i class="bi bi-clock"></i> L-V: 8:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Mapa interactivo
+        var map = L.map('map').setView([40.438072, -3.702699], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker = L.marker([40.438072, -3.702699]).addTo(map);
+        marker.bindPopup('<b>NEWLABEL MADRID</b><br>Calle Fuencarral 14').openPopup();
+        
+        // Efecto de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

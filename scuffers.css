@@ -1,0 +1,816 @@
+@media (max-width: 400px) {
+    .menu {
+        padding: 10px 0;
+    }
+
+    .menu-izquierda  {
+        width: 10px;
+        height: 10px; /* Tamaño del logo más pequeño */
+    }
+    .menu-izquierda img {
+         /* Tamaño del logo más pequeño */
+    }
+    .menu-derecha nav {
+        display: flex; /* Asegura que permanezcan en fila en pantallas pequeñas */
+        flex-wrap: wrap; /* Permite envolver si es necesario */
+        gap: 10px; /* Ajusta el espaciado en pantallas pequeñas */
+        justify-content: center; /* Centra los enlaces horizontalmente */
+    }
+
+    .menu-derecha nav a {
+        font-size: 14px; /* Reduce el tamaño de fuente */
+    }
+    
+    .articulo {
+    margin: 0;
+}
+}
+
+    /* Estilo base de las imágenes */
+    .footer-derecha img {
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave */
+    }
+
+    /* Estilo cuando el ratón pasa por encima */
+    .footer-derecha img:hover {
+        transform: scale(1.1); /* Escala un poco la imagen */
+        opacity: 0.8; /* Cambia la opacidad para hacerla más sutil */
+    }
+    
+    
+
+
+
+
+.articulo {
+    margin: 0 !important;
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar-nav .nav-link {
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    position: relative; /* Necesario para colocar el subrayado */
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    color: black; /* Color de texto de los enlaces */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+.navbar-nav .nav-link:hover {
+    color: black; /* Cambiar color al pasar por encima */
+}
+
+.navbar-nav .nav-link:after {
+    content: ''; /* Crear un pseudo-elemento para el subrayado */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Grosor del subrayado */
+    background-color: #000; /* Color del subrayado */
+    transition: width 0.7s ease; /* Transición para el subrayado */
+}
+
+.navbar-nav .nav-link:hover:after {
+    width: 100%; /* Hacer el subrayado completo al pasar por encima */
+}
+
+
+
+/* Estilos para los enlaces con clase 'nav-link' */
+a.nav-link {
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    position: relative; /* Necesario para colocar el subrayado */
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    color: black; /* Color del texto de los enlaces */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+/* Efecto hover para el subrayado */
+a.nav-link:hover {
+    color: black; /* Cambiar color del texto al pasar por encima */
+}
+
+a.nav-link:after {
+    content: ''; /* Crear un pseudo-elemento para el subrayado */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Grosor del subrayado */
+    background-color: #000; /* Color del subrayado */
+    transition: width 0.7s ease; /* Transición para el subrayado */
+}
+
+a.nav-link:hover:after {
+    width: 100%; /* Hacer el subrayado completo al pasar por encima */
+}
+
+
+/* Estilos para los enlaces dentro de .seleccion */
+.seleccion a {
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    position: relative; /* Necesario para colocar el subrayado */
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    color: black; /* Color del texto de los enlaces */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+/* Efecto hover para el subrayado */
+.seleccion a:hover {
+    color: black; /* Cambiar color del texto al pasar por encima */
+}
+
+.seleccion a:after {
+    content: ''; /* Crear un pseudo-elemento para el subrayado */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Grosor del subrayado */
+    background-color: #000; /* Color del subrayado */
+    transition: width 0.7s ease; /* Transición para el subrayado */
+}
+
+.seleccion a:hover:after {
+    width: 100%; /* Hacer el subrayado completo al pasar por encima */
+}
+
+
+
+
+
+
+.fondo {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fondo video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.contentFondo {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.contentFondo h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.contentFondo p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.contentFondo button {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.contentFondo button a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+button.eliminar-item {
+    border: none;
+    background-color: white;
+    margin-left: 5px;
+}
+
+#listaCarrito {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Opcional: elimina el espacio interno */
+    margin: 0; /* Opcional: elimina el margen */
+}
+
+#listaCarrito li {
+    border-bottom: 1px solid #ddd; /* Línea separadora */
+    padding: 10px 0; /* Espaciado arriba y abajo */
+}
+
+#listaCarrito li:last-child {
+    border-bottom: none; /* Elimina la línea en el último elemento */
+}
+
+
+.tallas {
+    margin-top: -17px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+ body {
+    font-family:  Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+    
+    
+}
+
+.menu-usuario #btnCerrarSesion{
+    color:white;
+}
+
+img[alt="logo-scuffers"]{
+    width: 200px;
+    height: 200px;
+
+}
+
+header {
+    position: sticky;           
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 20px;
+    height: 100px;
+}
+
+.menu-derecha{
+    margin-right: 40px;
+    display: flex;
+}
+
+.menu-derecha nav{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 100px;
+}
+
+.usuario-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.carrito img:hover{
+      cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* Estilos para el menú flotante del carrito */
+/* Estilos para el menú flotante del carrito */
+.carrito-menu {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 60px; /* Alineado con el ícono del carrito */
+    right: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Encabezado del carrito */
+.carrito-menu h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+}
+
+/* Texto del carrito */
+.carrito-menu p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Botón de cerrar */
+#cerrarCarrito {
+    display: block;
+    width: 100%;
+    background-color:lightcoral;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+#cerrarCarrito:hover {
+    background-color: lightcoral;
+}
+
+#finalizarCompra {
+    display: block;
+    width: 100%;
+    background-color: lightgreen;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+#finalizarCompra:hover {
+    background-color: lightgreen;
+}
+
+/* Animación de entrada */
+.carrito-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Animación de salida */
+.carrito-menu.hide {
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el menú de usuario */
+.menu-usuario {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    width: 180px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Botones dentro del menú */
+.menu-usuario button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Botón de Configuración */
+#btnConfiguracion {
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 8px;
+}
+
+#btnConfiguracion:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de Cerrar Sesión */
+#btnCerrarSesion {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+#btnCerrarSesion:hover {
+    background-color: #cc0000;
+}
+
+/* Animación de entrada */
+.menu-usuario.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Animación de salida */
+.menu-usuario.hide {
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+.usuario-menu img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+
+.menu-login {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+    width: 150px;
+}
+
+.menu-login h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.menu-login button {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#btnLogin {
+    background-color: black;
+    color: white;
+}
+
+#btnRegistro {
+    background-color: grey;
+    color: white;
+}
+
+.menu-login button:hover {
+    opacity: 0.8;
+}
+
+
+
+
+nav a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.seleccion{
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    gap:5px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.seleccion a{
+    text-decoration: none;
+    font-size: 0.7em;
+    color: black
+}
+
+.banners{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.video-banner {
+    margin-top: 10px;
+    width: 100%;
+    height: 300px; 
+    overflow: hidden; 
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+
+
+footer{
+    padding: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 21%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+
+.footer-derecha{
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+img[alt="logo-instagram"]{
+    width: 25px;
+    height:25px;
+}
+img[alt="logo-tiktok"]{
+    width: 25px;
+    height:25px;
+}
+img[alt="logo-facebook"]{
+    width: 25px;
+    height:25px;
+}
+
+.colores button{
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+#color1{
+    background-color: blanchedalmond;
+}
+#color2{
+    background-color: cadetblue;
+}
+#color3{
+    background-color: darkolivegreen;
+}
+
+button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.prendas{
+    width: 100%;
+    height: 800px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+.articulo{
+    position: relative;
+    width: 272.59px;
+    height: 408.89px;
+    display: inline-block;
+    margin-right: 35px;
+}
+
+.articulo img[alt="icono-añadir"]{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:320px;
+    right: 20px;
+}
+
+.articulo img[alt="icono-añadir"]:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.articulo img{
+    width: 250px;
+    height: 360px;
+    
+}
+
+.articulo p{
+    
+    font-size: 0.7em;
+    display: inline-block;
+}
+
+
+.tallas button{
+    background-color: transparent;
+    font-size: 0.8em;
+    border: none;
+}
+
+
+
+section{
+    margin: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.sorteo{
+    position: relative;
+    padding: 10px;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    margin:  60px auto;
+   
+}
+
+.sorteo p,label{
+    font-weight: bold;
+}
+
+
+.scuffers-main img{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.text-promo{
+    position: absolute;
+    top: 330px;
+    left: 425px;
+}
+
+.text-promo p {
+    font-size: 2.5em;
+    color: white;
+    font-weight: bold;
+    font-style: oblique;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-villa img{
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.medio-scuffers{
+    margin: 10px;
+    position: relative;
+}
+.medio-scuffers img{
+    height:449px;
+    width: 270px;
+
+}
+.banner-villa{
+    background-image: url(../img/villa-scufers.jpg);
+    background-size: cover;     
+    background-position: center;     
+    background-repeat: no-repeat;
+    position: relative;
+    width: 830px;
+    height: 449px;
+    margin: 10px;
+    
+}
+.scuffers-main{
+    margin: 10px;
+    position: relative;
+}
+
+
+
+.footer-izquierda{
+display: flex;
+justify-content: space-between;
+gap: 100px;
+}
+.footer-izquierda a{
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 0.7em;
+}
+
+@keyframes show{
+    from{
+        opacity: 0.0;
+        scale: 25%;
+    }
+    to{
+        opacity: 1;
+        scale:100%;
+    }
+}
+
+
+/* LOGO */
+
+.menu-izquierda{
+    animation: girar 3s infinite;
+}
+@keyframes girar{
+    from{
+        transform: rotateY(0deg);
+    }to{
+        transform: rotateY(360deg);
+    }
+
+    
+}
+
+
+.articulo{
+    view-timeline-name: --articulos;
+    view-timeline-axis: block;
+    animation-timeline: --articulos;
+    animation-name: show;
+    animation-range: entry 25%;
+    animation-fill-mode: both;
+}
+
+.video-banner{
+    view-timeline-name: --articulos;
+    view-timeline-axis: block;
+    animation-timeline: --articulos;
+    animation-name: show;
+    animation-range: entry 25%;
+    animation-fill-mode: both;
+}

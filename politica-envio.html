@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Envío - NEWLABEL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fff;
+            --accent-color: #ccc;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .shipping-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .shipping-container {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .shipping-section {
+            margin-bottom: 40px;
+        }
+        
+        .shipping-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .shipping-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .shipping-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .method-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .method-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .method-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .method-price {
+            font-weight: bold;
+            margin: 15px 0;
+            color: var(--primary-color);
+        }
+        
+        .info-box {
+            background-color: #f1f1f1;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .shipping-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .shipping-table th, .shipping-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .shipping-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .shipping-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .shipping-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        /* Estilos para el footer moderno */
+    .footer-moderno {
+        background-color: #000;
+        color: #fff;
+        padding: 50px 0 0;
+        font-family: 'Arial', sans-serif;
+        border-top: 1px solid #333;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .footer-section h4 {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .footer-section h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-section ul li i {
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    .footer-section ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #fff;
+    }
+
+    .slogan {
+        color: #aaa;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: #222;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+        background-color: #333;
+        transform: translateY(-3px);
+    }
+
+    .social-icon img {
+        width: 18px;
+        height: 18px;
+        filter: brightness(0) invert(1);
+    }
+
+    .footer-bottom {
+        background-color: #111;
+        padding: 30px 0 20px;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
+
+    .payment-section {
+        margin-bottom: 20px;
+    }
+
+    .payment-section h5 {
+        color: #aaa;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .payment-methods {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .payment-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #222;
+        border-radius: 8px;
+        padding: 10px 15px;
+        min-width: 80px;
+        transition: all 0.3s;
+    }
+
+    .payment-card:hover {
+        background: #333;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .payment-card img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        margin-bottom: 5px;
+        filter: grayscale(100%) brightness(1.5);
+        transition: filter 0.3s;
+    }
+
+    .payment-card:hover img {
+        filter: grayscale(0%) brightness(1);
+    }
+
+    .payment-card span {
+        font-size: 10px;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .copyright {
+        margin: 20px 0 0;
+        color: #666;
+        font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .footer-section h4::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .payment-methods {
+            gap: 10px;
+        }
+
+        .payment-card {
+            padding: 8px 10px;
+            min-width: 70px;
+        }
+    }
+    
+    .logo-newlabel{
+    width: 120px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php">
+                <img src="../img/logo-newlabel-removebg-preview.png" alt="logo-newlabel-removebg-preview" class="logo-newlabel">
+                
+                    <!--<h3>NEWLABEL</h3>-->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quienesSomos.html">Quienes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dondeEstamos.html">Donde Estamos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="shipping-header">
+        <h1>POLÍTICA DE ENVÍO</h1>
+        <p>Envíos rápidos y seguros para tu comodidad</p>
+    </div>
+
+    <div class="shipping-container">
+        <div class="shipping-section">
+            <h2>Opciones de Envío</h2>
+            <p>En NEWLABEL ofrecemos varias opciones de envío para adaptarnos a tus necesidades. Todos nuestros paquetes se envían de forma segura.</p>
+            
+            <div class="shipping-methods">
+                <div class="method-card">
+                    <h3><i class="bi bi-truck method-icon"></i> Envío Estándar</h3>
+                    <div class="method-price">Gratis para pedidos superiores a 100€ | 4,95€ para pedidos menores</div>
+                    <ul>
+                        <li>Entrega en 3-5 días laborables</li>
+                        <li>Envío a toda España peninsular</li>
+                        <li>Gestionado por Correos Express</li>
+                    </ul>
+                </div>
+                
+                <div class="method-card">
+                    <h3><i class="bi bi-lightning method-icon"></i> Envío Exprés</h3>
+                    <div class="method-price">9,95€ para todos los pedidos</div>
+                    <ul>
+                        <li>Entrega en 24-48 horas laborables</li>
+                        <li>Entrega antes de las 14:00h</li>
+                        <li>Disponible de lunes a viernes</li>
+                    </ul>
+                </div>
+                
+                <div class="method-card">
+                    <h3><i class="bi bi-globe method-icon"></i> Envío Internacional</h3>
+                    <div class="method-price">Desde 14,95€ según destino</div>
+                    <ul>
+                        <li>Entrega en 5-10 días laborables</li>
+                        <li>Gestionado por DHL International</li>
+                        <li>Posibles aranceles en destino</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shipping-section">
+            <h2>Tiempos de Procesamiento</h2>
+            <p>Todos los pedidos se procesan en un plazo de <strong>1-2 días laborables</strong> después de recibir el pago. Los pedidos realizados los viernes después de las 14:00h o durante el fin de semana se procesarán el siguiente lunes.</p>
+            
+            <div class="info-box">
+                <p><strong>Nota importante:</strong> Durante periodos de alta demanda (Black Friday, Navidad, etc.), los tiempos de procesamiento pueden extenderse hasta 3-4 días laborables. Te mantendremos informado sobre el estado de tu pedido.</p>
+            </div>
+            
+            <h3>Horario de envíos:</h3>
+            <table class="shipping-table">
+                <thead>
+                    <tr>
+                        <th>Día del Pedido</th>
+                        <th>Envío Estándar</th>
+                        <th>Envío Exprés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lunes antes de 12:00</td>
+                        <td>Entrega miércoles-jueves</td>
+                        <td>Entrega martes antes de 14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Martes antes de 12:00</td>
+                        <td>Entrega jueves-viernes</td>
+                                               <td>Entrega miércoles antes de 14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Miércoles antes de 12:00</td>
+                        <td>Entrega viernes-lunes</td>
+                        <td>Entrega jueves antes de 14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Jueves antes de 12:00</td>
+                        <td>Entrega lunes-martes</td>
+                        <td>Entrega viernes antes de 14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Viernes antes de 12:00</td>
+                        <td>Entrega martes-miércoles</td>
+                        <td>Entrega lunes antes de 14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Fin de semana (Sáb-Dom)</td>
+                        <td>Procesado el lunes - Entrega miércoles-jueves</td>
+                        <td>Procesado el lunes - Entrega martes antes de 14:00</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box mt-4">
+                <p><strong>Excepciones:</strong> No se realizan envíos los días festivos nacionales. Para Canarias, Baleares, Ceuta y Melilla los plazos se extienden 1-2 días adicionales.</p>
+            </div>
+        </div>
+        
+        <div class="shipping-section">
+            <h2>Seguimiento de Pedidos</h2>
+            <p>Una vez que tu pedido haya sido enviado, recibirás un email de confirmación con:</p>
+            <ul>
+                <li>Direccion de entrega</li>
+                <li>Metodo de Pago</li>
+                <li>Productos </li>
+            </ul>
+            
+            <p>Si no recibes esta información en 48 horas hábiles o tienes algún problema con el seguimiento, por favor contáctanos en <a href="mailto:info@newlabel.com">info@newlabel.com</a>.</p>
+        </div>
+        
+        <div class="shipping-section">
+            <h2>Política de Entrega</h2>
+            <h3>Intentos de entrega:</h3>
+            <p>La transportista realizará hasta 2 intentos de entrega. Si no hay nadie en la dirección, dejarán un aviso para que puedas:</p>
+            <ul>
+                <li>Recoger el paquete en la oficina más cercana (disponible por 5 días laborables)</li>
+                <li>Programar una nueva entrega</li>
+            </ul>
+            
+            <h3 class="mt-4">Direcciones incorrectas:</h3>
+            <p>Por favor verifica cuidadosamente tu dirección de envío. Si el paquete es devuelto por dirección incorrecta, deberás cubrir los gastos de reenvío.</p>
+        </div>
+    </div>
+    <footer id="contacto" class="footer-moderno">
+    <div class="footer-container">
+        <!-- Sección de enlaces rápidos -->
+        <div class="footer-section">
+            <h4>NEWLABEL</h4>
+            <p class="slogan">Drip don't lie.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/ivan.soriia" target="_blank" class="social-icon">
+                    <img src="../img/instagram.ico" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@sooriiiaa" target="_blank" class="social-icon">
+                    <img src="../img/tik-tok.png" alt="TikTok">
+                </a>
+            </div>
+        </div>
+
+        <!-- Sección de ayuda -->
+        <div class="footer-section">
+            <h4>AYUDA</h4>
+            <ul>
+                <li><a href="faqs.html">FAQS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="cambios-devoluciones.html">CAMBIOS Y DEVOLUCIONES</a></li>
+                <li><a href="politica-envio.html">POLÍTICA DE ENVÍO</a></li>
+            </ul>
+        </div>
+
+        <!-- Sección legal -->
+        <div class="footer-section">
+            <h4>LEGAL</h4>
+            <ul>
+                <li><a href="terminos-condiciones.html">TÉRMINOS Y CONDICIONES</a></li>
+                <li><a href="politica-privacidad.html">POLÍTICA DE PRIVACIDAD</a></li>
+                <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
+                <li><a href="aviso-legal.html">AVISO LEGAL</a></li>
+            </ul>
+        </div>
+
+        <!-- Sección de contacto -->
+        <div class="footer-section">
+            <h4>CONTÁCTANOS</h4>
+            <ul>
+                <li><i class="bi bi-envelope"></i> info@newlabel.com</li>
+                <li><i class="bi bi-telephone"></i> +34 123 456 789</li>
+                <li><i class="bi bi-clock"></i> L-V: 8:00 - 17:00</li>
+            </ul>
+        </div>
+    </div>
+
+   
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - NEWLABEL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fff;
+            --accent-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--accent-color);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legal-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .legal-section {
+            margin-bottom: 40px;
+        }
+        
+        .legal-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .legal-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .legal-section h3 {
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+            color: #555;
+        }
+        
+        .note-box {
+            background-color: #f1f1f1;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .legal-container {
+                padding: 0 15px;
+            }
+        }
+        
+        /* Estilos para el footer moderno */
+    .footer-moderno {
+        background-color: #000;
+        color: #fff;
+        padding: 50px 0 0;
+        font-family: 'Arial', sans-serif;
+        border-top: 1px solid #333;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .footer-section h4 {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .footer-section h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-section ul li i {
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    .footer-section ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #fff;
+    }
+
+    .slogan {
+        color: #aaa;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: #222;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+        background-color: #333;
+        transform: translateY(-3px);
+    }
+
+    .social-icon img {
+        width: 18px;
+        height: 18px;
+        filter: brightness(0) invert(1);
+    }
+
+    .footer-bottom {
+        background-color: #111;
+        padding: 30px 0 20px;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
+
+    .payment-section {
+        margin-bottom: 20px;
+    }
+
+    .payment-section h5 {
+        color: #aaa;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .payment-methods {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .payment-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #222;
+        border-radius: 8px;
+        padding: 10px 15px;
+        min-width: 80px;
+        transition: all 0.3s;
+    }
+
+    .payment-card:hover {
+        background: #333;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .payment-card img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        margin-bottom: 5px;
+        filter: grayscale(100%) brightness(1.5);
+        transition: filter 0.3s;
+    }
+
+    .payment-card:hover img {
+        filter: grayscale(0%) brightness(1);
+    }
+
+    .payment-card span {
+        font-size: 10px;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .copyright {
+        margin: 20px 0 0;
+        color: #666;
+        font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .footer-section h4::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .payment-methods {
+            gap: 10px;
+        }
+
+        .payment-card {
+            padding: 8px 10px;
+            min-width: 70px;
+        }
+    }
+    .logo-newlabel{
+    width: 120px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php">
+                <h3>NEWLABEL</h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quienesSomos.html">Quienes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dondeEstamos.html">Donde Estamos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="legal-header">
+        <h1>TÉRMINOS Y CONDICIONES</h1>
+        <p>Última actualización: 01 de Enero de 2023</p>
+    </div>
+
+    <div class="legal-container">
+        <div class="legal-section">
+            <h2>1. Introducción</h2>
+            <p>Bienvenido a NEWLABEL. Estos términos y condiciones describen las reglas y regulaciones para el uso de nuestro sitio web y la compra de productos a través del mismo.</p>
+            <p>Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones en su totalidad. No continúes usando el sitio web de NEWLABEL si no aceptas todos los términos y condiciones establecidos en esta página.</p>
+        </div>
+        
+        <div class="legal-section">
+            <h2>2. Compras y Pedidos</h2>
+            <h3>2.1 Proceso de Compra</h3>
+            <p>Al realizar un pedido en NEWLABEL, aceptas que:</p>
+            <ul>
+                <li>Toda la información que proporciones es exacta y completa</li>
+                <li>Eres mayor de 18 años o tienes el consentimiento de un tutor legal</li>
+                <li>Aceptas pagar el precio total del producto más los gastos de envío aplicables</li>
+            </ul>
+            
+            <h3>2.2 Confirmación de Pedido</h3>
+            <p>Recibirás un correo electrónico de confirmación una vez que tu pedido haya sido procesado. Esta confirmación no constituye una aceptación de tu pedido, sino un reconocimiento de que lo hemos recibido.</p>
+            
+            <div class="note-box">
+                <p><strong>Nota:</strong> Nos reservamos el derecho de rechazar cualquier pedido por cualquier motivo a nuestra discreción.</p>
+            </div>
+        </div>
+        
+        <div class="legal-section">
+            <h2>3. Precios y Pagos</h2>
+            <p>Todos los precios mostrados en nuestro sitio web están en Euros (€) e incluyen IVA aplicable. Nos reservamos el derecho de modificar los precios en cualquier momento, pero los cambios no afectarán a los pedidos ya confirmados.</p>
+            <p>Aceptamos los siguientes métodos de pago: Visa, Mastercard, American Express.</p>
+        </div>
+        
+        <div class="legal-section">
+            <h2>4. Propiedad Intelectual</h2>
+            <p>Todo el contenido incluido en este sitio web, como textos, gráficos, logotipos, imágenes, videos y software, es propiedad de NEWLABEL o de sus proveedores de contenido y está protegido por las leyes de propiedad intelectual internacionales.</p>
+            <p>Queda estrictamente prohibido el uso no autorizado de cualquier contenido de este sitio web sin nuestro permiso expreso por escrito.</p>
+        </div>
+        
+        <div class="legal-section">
+            <h2>5. Limitación de Responsabilidad</h2>
+            <p>NEWLABEL no será responsable de ningún daño directo, indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar nuestros productos o servicios, incluso si hemos sido advertidos de la posibilidad de tales daños.</p>
+        </div>
+        
+        <div class="legal-section">
+            <h2>6. Modificaciones</h2>
+            <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web. Es tu responsabilidad revisar periódicamente estos términos y condiciones.</p>
+        </div>
+        
+        <div class="legal-section">
+            <h2>7. Ley Aplicable</h2>
+            <p>Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes de España. Cualquier disputa relacionada con estos términos y condiciones estará sujeta a la jurisdicción exclusiva de los tribunales de Madrid.</p>
+        </div>
+    </div>
+
+<footer id="contacto" class="footer-moderno">
+    <div class="footer-container">
+        <!-- Sección de enlaces rápidos -->
+        <div class="footer-section">
+            <h4>NEWLABEL</h4>
+            <p class="slogan">Drip don't lie.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/ivan.soriia" target="_blank" class="social-icon">
+                    <img src="../img/instagram.ico" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@sooriiiaa" target="_blank" class="social-icon">
+                    <img src="../img/tik-tok.png" alt="TikTok">
+                </a>
+            </div>
+        </div>
+
+        <!-- Sección de ayuda -->
+        <div class="footer-section">
+            <h4>AYUDA</h4>
+            <ul>
+                <li><a href="faqs.html">FAQS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="cambios-devoluciones.html">CAMBIOS Y DEVOLUCIONES</a></li>
+                <li><a href="politica-envio.html">POLÍTICA DE ENVÍO</a></li>
+            </ul>
+        </div>
+
+
+        <!-- Sección legal -->
+        <div class="footer-section">
+            <h4>LEGAL</h4>
+            <ul>
+                <li><a href="terminos-condiciones.html">TÉRMINOS Y CONDICIONES</a></li>
+                <li><a href="politica-privacidad.html">POLÍTICA DE PRIVACIDAD</a></li>
+                <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
+                <li><a href="aviso-legal.html">AVISO LEGAL</a></li>
+            </ul>
+        </div>
+
+        <!-- Sección de contacto -->
+        <div class="footer-section">
+            <h4>CONTÁCTANOS</h4>
+            <ul>
+                <li><i class="bi bi-envelope"></i> info@newlabel.com</li>
+                <li><i class="bi bi-telephone"></i> +34 123 456 789</li>
+                <li><i class="bi bi-clock"></i> L-V: 8:00 - 17:00</li>
+            </ul>
+        </div>
+    </div>
+
+   
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
